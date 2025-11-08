@@ -3,8 +3,8 @@
 **Link público:** [https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/](https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/)
 
 Projeto acadêmico (PCA – Introdução às Aplicações Web - Atividade 2) com foco em **inclusão**, **acolhimento** e **aprendizagem guiada** para quem quer iniciar na TI — aqui não existem perguntas “idiotas”.
-
 Projeto em andamento, 50% concluído.
+
 ---
 
 ## Objetivo
