@@ -21,10 +21,7 @@ Facilitar o primeiro contato com TI oferecendo:
 Sem dependências. Basta abrir o `index.html` no navegador.
 
 1. Baixe/clique duas vezes no `index.html` **ou** use o VS Code com a extensão **Live Server**.
-2. Acesse as seções **Teste de Área**, **Trilhas**, **Perguntas**, **Progresso**.
-3. O armazenamento usa **LocalStorage** (não há backend nesta versão).
-
-Publicação: via **GitHub Pages** (Deploy from Branch → main → /root). Link acima.
+2. Ou acesse via **GitHub Pages** (Deploy from Branch → main → /root). Link acima.
 
 
 ## Tecnologias
