@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Plataforma de Conhecimento — Protótipo</title>
+  <!-- Tailwind via CDN (somente para protótipo) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js para gráfico de progresso -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- Mermaid para diagrama de arquitetura (mantido, mas não usado) -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
+  <style>
+    html { scroll-behavior: smooth; }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.75); }
+  </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 text-slate-800">
+  <!-- NAVBAR -->
+  <header class="sticky top-0 z-50 glass border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="#home" class="font-bold text-lg">T-Easy</a>
+      <nav class="hidden md:flex gap-6 text-sm">
+        <a href="#home" class="hover:text-indigo-700">Início</a>
+        <a href="#teste" class="hover:text-indigo-700">Teste de Área</a>
+        <a href="#trilhas" class="hover:text-indigo-700">Trilhas</a>
+        <a href="#qa" class="hover:text-indigo-700">Perguntas</a>
+        <a href="#maker" class="hover:text-indigo-700">Maker</a>
+        <a href="#badges" class="hover:text-indigo-700">Progresso</a>
+      </nav>
+      <button id="btnMobile" class="md:hidden p-2 rounded border border-slate-300" aria-label="Abrir menu">☰</button>
+    </div>
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+      <div class="flex flex-col gap-2 text-sm">
+        <a href="#home" class="hover:text-indigo-700">Início</a>
+        <a href="#teste" class="hover:text-indigo-700">Teste de Área</a>
+        <a href="#trilhas" class="hover:text-indigo-700">Trilhas</a>
+        <a href="#qa" class="hover:text-indigo-700">Perguntas</a>
+        <a href="#maker" class="hover:text-indigo-700">Maker</a>
+        <a href="#badges" class="hover:text-indigo-700">Progresso</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO / HOME -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">T-Easy — Seu começo no TI não precisa ser difícil.</h1>
+        <p class="text-slate-600 mb-6">Descubra sua área, siga trilhas guiadas, pergunte à vontade e ganhe badges de progresso. Um espaço acolhedor para você entrar no mundo da tecnologia.</p>
+        <div class="flex gap-3">
+          <a href="#teste" class="inline-block bg-indigo-600 text-white px-5 py-3 rounded-xl shadow hover:bg-indigo-700">Fazer Teste de Área</a>
+          <a href="#trilhas" class="inline-block bg-white border border-slate-300 px-5 py-3 rounded-xl hover:border-slate-400">Ver Trilhas</a>
+        </div>
+      </div>
+      <div class="relative">
+        <div class="absolute -top-10 -right-10 w-56 h-56 bg-indigo-200 rounded-full blur-3xl opacity-60"></div>
+        <div class="relative bg-white border border-slate-200 rounded-2xl p-6 shadow">
+          <h3 class="font-semibold mb-3">Exemplo de Trilha</h3>
+          <ul class="text-sm space-y-2 list-disc list-inside">
+            <li>Fundamentos de Lógica</li>
+            <li>Git e GitHub</li>
+            <li>HTML, CSS e JS</li>
+            <li>Projeto prático: Landing Page</li>
+          </ul>
+          <p class="text-xs text-slate-500 mt-4">* Protótipo funcional (v0.5) com dados locais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTE DE ÁREA -->
+  <section id="teste" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="text-2xl md:text-3xl font-bold">Teste de Área de Interesse</h2>
+      <button id="btnResetQuiz" class="text-sm underline">Limpar respostas</button>
+    </div>
+    <form id="quiz" class="bg-white border border-slate-200 rounded-2xl p-6 shadow grid gap-6">
+      <!-- Questões -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <label class="font-semibold">1) O que te anima mais?</label>
+          <select class="mt-2 w-full border rounded-lg p-2" name="q1" required>
+            <option value="">Selecione...</option>
+            <option value="dev">Criar aplicações e interfaces</option>
+            <option value="infra">Montar e manter ambientes</option>
+            <option value="cloud">Automatizar e escalar na nuvem</option>
+            <option value="obs">Observar performance e logs</option>
+            <option value="dados">Entender dados e métricas</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-semibold">2) Preferência de atividade</label>
+          <select class="mt-2 w-full border rounded-lg p-2" name="q2" required>
+            <option value="">Selecione...</option>
+            <option value="dev">Codificar features</option>
+            <option value="infra">Configurar redes/serviços</option>
+            <option value="cloud">Infra como código</option>
+            <option value="obs">Dashboards e alertas</option>
+            <option value="dados">Análises e relatórios</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-semibold">3) Ferramentas que te atraem</label>
+          <select class="mt-2 w-full border rounded-lg p-2" name="q3" required>
+            <option value="">Selecione...</option>
+            <option value="dev">React, Node.js</option>
+            <option value="infra">Linux, Docker</option>
+            <option value="cloud">Terraform, AWS/GCP</option>
+            <option value="obs">Datadog, Prometheus</option>
+            <option value="dados">SQL, Python</option>
+          </select>
+        </div>
+        <div>
+          <label class="font-semibold">4) Tipo de problema</label>
+          <select class="mt-2 w-full border rounded-lg p-2" name="q4" required>
+            <option value="">Selecione...</option>
+            <option value="dev">UX e funcionalidades</option>
+            <option value="infra">Disponibilidade</option>
+            <option value="cloud">Escalabilidade</option>
+            <option value="obs">Confiabilidade</option>
+            <option value="dados">Tomada de decisão</option>
+          </select>
+        </div>
+      </div>
+      <button class="bg-indigo-600 text-white px-5 py-3 rounded-xl w-max hover:bg-indigo-700">Ver Resultado</button>
+      <p id="quizResult" class="hidden p-4 rounded-xl bg-indigo-50 text-indigo-900"></p>
+    </form>
+  </section>
+
+  <!-- TRILHAS DE APRENDIZADO -->
+  <section id="trilhas" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Trilhas de Aprendizado</h2>
+    <div id="tracks" class="grid md:grid-cols-2 gap-6"></div>
+  </section>
+
+  <!-- PERGUNTAS E RESPOSTAS -->
+  <section id="qa" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-8 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-bold mb-2">Pergunte sem medo</h2>
+        <p class="text-slate-600 mb-4">Aqui ninguém julga. Faça uma pergunta e receba uma resposta clara e acolhedora.</p>
+        <form id="qaForm" class="bg-white border border-slate-200 rounded-2xl p-6 shadow grid gap-4">
+          <input name="nome" placeholder="Seu nome (opcional)" class="border rounded-lg p-2" />
+          <textarea name="pergunta" required placeholder="Escreva sua pergunta..." class="border rounded-lg p-2 h-28"></textarea>
+          <button class="bg-indigo-600 text-white px-5 py-3 rounded-xl w-max hover:bg-indigo-700">Enviar</button>
+          <p id="qaFeedback" class="hidden text-green-700 text-sm">Pergunta enviada! (salva localmente)</p>
+        </form>
+      </div>
+      <div>
+        <h3 class="font-semibold mb-3">Perguntas recentes</h3>
+        <ul id="qaList" class="space-y-3"></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CULTURA MAKER / PROJETOS PRÁTICOS -->
+  <section id="maker" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Cultura Maker & Projetos Práticos</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+        <h4 class="font-semibold mb-2">Projeto 1: Página Estática</h4>
+        <p class="text-sm text-slate-600">Crie uma landing page com HTML/CSS/JS e publique no GitHub Pages.</p>
+      </article>
+      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+        <h4 class="font-semibold mb-2">Projeto 2: Bot de Logs</h4>
+        <p class="text-sm text-slate-600">Simule logs e gere um dashboard local com gráficos.</p>
+      </article>
+      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+        <h4 class="font-semibold mb-2">Projeto 3: API Mock</h4>
+        <p class="text-sm text-slate-600">Crie uma API fake com JSON Server para consumir no front.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- BADGES / PROGRESSO -->
+  <section id="badges" class="max-w-6xl mx-auto px-4 py-16">
+    <h2 class="text-2xl md:text-3xl font-bold mb-6">Seu Progresso</h2>
+    <div class="grid md:grid-cols-2 gap-8 items-center">
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow">
+        <h3 class="font-semibold mb-3">Badges conquistados</h3>
+        <div class="flex gap-2 flex-wrap" id="badgeList"></div>
+      </div>
+      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow">
+        <h3 class="font-semibold mb-3">Gráfico de Progresso</h3>
+        <canvas id="progressChart" width="400" height="400" aria-label="Gráfico de progresso" role="img"></canvas>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-200 mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-500">
+      <p>Protótipo educacional — IniciaTI (PCA). v0.5</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT DA PÁGINA -->
+  <script>
+    // ======= MENU MOBILE =======
+    document.getElementById('btnMobile').addEventListener('click', () => {
+      document.getElementById('mobileMenu').classList.toggle('hidden');
+    });
+
+    // ======= DADOS MOCKADOS =======
+    const TRACKS = {
+      dev: {
+        titulo: 'Desenvolvimento (Front/Back)',
+        passos: [
+          'Lógica de Programação & Git',
+          'HTML + CSS + JavaScript',
+          'Node.js & APIs REST',
+          'Framework (React) — básico',
+          'Projeto: To‑Do com persistência local'
+        ]
+      },
+      infra: {
+        titulo: 'Infraestrutura & Redes',
+        passos: [
+          'Fundamentos de Sistemas Operacionais',
+          'Linux básico e Shell',
+          'Redes (TCP/IP, DNS, HTTP)',
+          'Virtualização & Containers',
+          'Projeto: Servidor web com Docker'
+        ]
+      },
+      cloud: {
+        titulo: 'Cloud & DevOps',
+        passos: [
+          'Conceitos de Nuvem (IaaS/PaaS/SaaS)',
+          'Docker & Compose',
+          'Terraform — fundamentos',
+          'Pipelines CI/CD (GitHub Actions)',
+          'Projeto: IaC para uma API simples'
+        ]
+      },
+      obs: {
+        titulo: 'Observabilidade',
+        passos: [
+          'Métricas, Logs e Traces — conceitos',
+          'Prometheus/Grafana — noções',
+          'Integrações (ex.: Datadog) — visão',
+          'Alertas e Dashboards',
+          'Projeto: Coletar logs e gerar gráfico'
+        ]
+      },
+      dados: {
+        titulo: 'Dados & Análise',
+        passos: [
+          'SQL — fundamentos',
+          'Python para análise (pandas)',
+          'Visualização de dados',
+          'ETL/ELT — visão geral',
+          'Projeto: Relatório com dataset público'
+        ]
+      }
+    };
+
+    // ======= RENDER DE TRILHAS =======
+    function renderTracks() {
+      const wrapper = document.getElementById('tracks');
+      wrapper.innerHTML = '';
+      Object.entries(TRACKS).forEach(([key, trilha]) => {
+        const card = document.createElement('article');
+        card.className = 'bg-white border border-slate-200 rounded-2xl p-6 shadow flex flex-col';
+        card.innerHTML = `
+          <div class="flex items-start justify-between gap-3">
+            <h3 class="font-semibold text-lg">${trilha.titulo}</h3>
+            <button data-track="${key}" class="text-sm px-3 py-1 rounded-lg border hover:bg-slate-50">Marcar como iniciada</button>
+          </div>
+          <ol class="mt-4 list-decimal list-inside space-y-2 text-sm">
+            ${trilha.passos.map(p => `<li>${p}</li>`).join('')}
+          </ol>
+        `;
+        wrapper.appendChild(card);
+      });
+
+      // Ação: Marcar como iniciada
+      wrapper.querySelectorAll('button[data-track]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const k = btn.getAttribute('data-track');
+          addBadge(`Trilha: ${TRACKS[k].titulo}`);
+          alert('Parabéns! Badge adicionada ao seu progresso.');
+          updateChart();
+        });
+      });
+    }
+
+    // ======= QUIZ =======
+    const quizEl = document.getElementById('quiz');
+    const quizResult = document.getElementById('quizResult');
+    quizEl.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(quizEl);
+      const respostas = [data.get('q1'), data.get('q2'), data.get('q3'), data.get('q4')];
+      const contagem = respostas.reduce((acc, cur) => { acc[cur] = (acc[cur]||0)+1; return acc; }, {});
+      const area = Object.entries(contagem).sort((a,b)=>b[1]-a[1])[0][0];
+      const trilha = TRACKS[area];
+      quizResult.classList.remove('hidden');
+      quizResult.innerHTML = `<strong>Área sugerida:</strong> ${trilha.titulo}. <br/>Siga esta trilha abaixo e marque seu progresso.`;
+      localStorage.setItem('quizArea', area);
+      document.getElementById('quiz').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    document.getElementById('btnResetQuiz').addEventListener('click', () => {
+      localStorage.removeItem('quizArea');
+      quizEl.reset();
+      quizResult.classList.add('hidden');
+    });
+
+    // ======= Q&A (LocalStorage) =======
+    const qaForm = document.getElementById('qaForm');
+    const qaList = document.getElementById('qaList');
+    const qaFeedback = document.getElementById('qaFeedback');
+
+    // Perguntas padrão (aparecem automaticamente na primeira visita)
+    const SEED_QA = [
+      {
+        nome: 'Iniciante',
+        pergunta: 'Qual a diferença entre front-end e back-end?',
+        resposta: 'Front-end é o que o usuário vê e interage (HTML, CSS, JS no navegador). Back-end é o que roda no servidor cuidando de regras de negócio, banco de dados e APIs. Eles conversam via HTTP/APIs.'
+      },
+      {
+        nome: 'Iniciante',
+        pergunta: 'Preciso saber programar para trabalhar com TI?',
+        resposta: 'Não necessariamente. Há trilhas como suporte, infraestrutura, redes, QA, dados (análise), segurança e gestão. Programar ajuda muito e abre portas, mas você pode começar em áreas com pouca ou nenhuma codificação e evoluir aos poucos.'
+      },
+      {
+        nome: 'Iniciante',
+        pergunta: 'O que é exatamente um servidor? É um computador normal?',
+        resposta: 'É um computador otimizado para oferecer serviços pela rede (sites, APIs, banco de dados). Pode ser uma máquina física no datacenter ou uma instância na nuvem. Apesar de ser “um computador”, tem configurações e responsabilidades próprias (disponibilidade, segurança, backups).'
+      }
+    ];
+
+    function loadQA() {
+      let items = JSON.parse(localStorage.getItem('qaItems') || '[]');
+      if (!items.length) {
+        // Primeira carga: sem nada salvo, semeia perguntas padrão
+        items = SEED_QA.map(q => ({ ...q, data: new Date().toISOString() }));
+        localStorage.setItem('qaItems', JSON.stringify(items));
+      }
+      qaList.innerHTML = items.map(item => {
+        const hasAnswer = !!item.resposta;
+        return `
+        <li class="bg-white border border-slate-200 rounded-xl p-4 shadow">
+          <p class="text-sm"><span class="font-semibold">${item.nome||'Anônimo'}:</span> ${item.pergunta}</p>
+          ${hasAnswer ? `<details class="mt-2"><summary class="text-xs text-indigo-700 cursor-pointer">Ver resposta</summary><p class="text-sm mt-2">${item.resposta}</p></details>` : ''}
+          <p class="text-xs text-slate-500 mt-1">${new Date(item.data).toLocaleString()}</p>
+        </li>`;
+      }).join('');
+    }
+
+    qaForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(qaForm);
+      const novo = {
+        nome: data.get('nome'),
+        pergunta: data.get('pergunta'),
+        data: new Date().toISOString()
+      };
+      const items = JSON.parse(localStorage.getItem('qaItems') || '[]');
+      items.unshift(novo);
+      localStorage.setItem('qaItems', JSON.stringify(items));
+      qaFeedback.classList.remove('hidden');
+      qaForm.reset();
+      loadQA();
+      setTimeout(()=> qaFeedback.classList.add('hidden'), 2500);
+    });
+
+    // ======= BADGES & PROGRESSO =======
+    const badgeList = document.getElementById('badgeList');
+    function getBadges() { return JSON.parse(localStorage.getItem('badges')||'[]'); }
+    function setBadges(b) { localStorage.setItem('badges', JSON.stringify(b)); }
+    function addBadge(label) {
+      const b = getBadges();
+      if (!b.includes(label)) { b.push(label); setBadges(b); renderBadges(); }
+    }
+    function renderBadges() {
+      const badges = getBadges();
+      badgeList.innerHTML = badges.length ? badges.map(b => `
+        <span class="px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-900 border border-indigo-200">${b}</span>`).join('')
+      : '<span class="text-sm text-slate-500">Sem badges ainda — inicie uma trilha.</span>';
+    }
+
+    // ======= CHART =======
+    let chart;
+    function updateChart() {
+      const total = 5; // número simbólico de badges meta
+      const done = getBadges().length;
+      const rest = Math.max(total - done, 0);
+      const ctx = document.getElementById('progressChart').getContext('2d');
+      if (chart) chart.destroy();
+      chart = new Chart(ctx, {
+        type: 'doughnut',
+        data: { labels: ['Conquistado', 'Faltante'], datasets: [{ data: [done, rest] }]},
+        options: { responsive: true, plugins: { legend: { position: 'bottom' }}}
+      });
+    }
+
+    // ======= INIT =======
+    renderTracks();
+    loadQA();
+    renderBadges();
+    updateChart();
+
+    // Restaurar resultado do quiz, se houver
+    const savedArea = localStorage.getItem('quizArea');
+    if (savedArea && TRACKS[savedArea]) {
+      const trilha = TRACKS[savedArea];
+      quizResult.classList.remove('hidden');
+      quizResult.innerHTML = `<strong>Área sugerida:</strong> ${trilha.titulo}. <br/>Siga esta trilha abaixo e marque seu progresso.`;
+    }
+  </script>
+</body>
+</html>
