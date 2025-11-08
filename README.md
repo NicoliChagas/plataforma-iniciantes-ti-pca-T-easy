@@ -5,7 +5,6 @@
 Projeto acadêmico (PCA – Introdução às Aplicações Web - Atividade 2) com foco em **inclusão**, **acolhimento** e **aprendizagem guiada** para quem quer iniciar na TI — aqui não existem perguntas “idiotas”.
 Projeto em andamento, 50% concluído.
 
----
 
 ## Objetivo
 
@@ -16,7 +15,6 @@ Facilitar o primeiro contato com TI oferecendo:
 * **Espaço de perguntas** (Q&A) salvo localmente, com perguntas básicas já semeadas e respostas claras.
 * **Badges e gráfico de progresso** para motivação inicial.
 
----
 
 ## Como rodar
 
@@ -28,7 +26,6 @@ Sem dependências. Basta abrir o `index.html` no navegador.
 
 Publicação: via **GitHub Pages** (Deploy from Branch → main → /root). Link acima.
 
----
 
 ## Tecnologias
 
@@ -36,9 +33,8 @@ Publicação: via **GitHub Pages** (Deploy from Branch → main → /root). Link
 * **Chart.js** (gráfico de progresso)
 * **LocalStorage** (persistência no navegador)
 
----
 
-## Estrutura do projeto
+## Estrutura do projeto #até o momento
 
 ```
 /
