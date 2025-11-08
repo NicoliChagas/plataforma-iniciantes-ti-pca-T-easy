@@ -3,7 +3,8 @@
 **Link público:** [https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/](https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/)
 
 Projeto acadêmico (PCA – Introdução às Aplicações Web - Atividade 2) com foco em **inclusão**, **acolhimento** e **aprendizagem guiada** para quem quer iniciar na TI — aqui não existem perguntas “idiotas”.
-#Projeto em andamento, 50% concluído.
+
+Projeto em andamento, 50% concluído.
 ---
 
 ## Objetivo
@@ -14,8 +15,6 @@ Facilitar o primeiro contato com TI oferecendo:
 * **Trilhas de aprendizado** com passos simples e progressivos.
 * **Espaço de perguntas** (Q&A) salvo localmente, com perguntas básicas já semeadas e respostas claras.
 * **Badges e gráfico de progresso** para motivação inicial.
-
-> Esta versão é um **protótipo funcional (v0.5)**, 100% front‑end (HTML/CSS/JS), ideal para demonstração em vídeo (1–5 min) e avaliação.
 
 ---
 
