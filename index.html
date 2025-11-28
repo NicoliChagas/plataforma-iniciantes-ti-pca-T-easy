@@ -13,32 +13,53 @@
   <script>mermaid.initialize({ startOnLoad: true, theme: 'default' });</script>
   <style>
     html { scroll-behavior: smooth; }
-    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.75); }
+    .glass { backdrop-filter: blur(8px); background: rgba(15,23,42,.85); }
+
+    /* Fundo roxo + preto com vibe tech */
+    body {
+      background: radial-gradient(circle at 0% 0%, #4c1d95 0, transparent 55%),
+                  radial-gradient(circle at 100% 0%, #0ea5e9 0, transparent 55%),
+                  radial-gradient(circle at 50% 100%, #020617 0, #020617 60%);
+      color: #e5e7eb;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(168,85,247,0.20) 0, transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(56,189,248,0.20) 0, transparent 60%),
+        radial-gradient(circle at 50% 100%, rgba(15,23,42,0.9) 0, transparent 65%);
+      opacity: 0.9;
+      z-index: -1;
+      pointer-events: none;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-slate-50 to-indigo-50 text-slate-800">
+<body class="min-h-screen text-slate-100">
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-50 glass border-b border-slate-200">
+  <header class="sticky top-0 z-50 glass border-b border-slate-800/60">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
-      <a href="#home" class="font-bold text-lg">T-Easy</a>
+      <a href="#home" class="font-bold text-lg text-violet-200">T-Easy</a>
       <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#home" class="hover:text-indigo-700">Início</a>
-        <a href="#teste" class="hover:text-indigo-700">Teste de Área</a>
-        <a href="#trilhas" class="hover:text-indigo-700">Trilhas</a>
-        <a href="#qa" class="hover:text-indigo-700">Perguntas</a>
-        <a href="#maker" class="hover:text-indigo-700">Maker</a>
-        <a href="#badges" class="hover:text-indigo-700">Progresso</a>
+        <a href="#home" class="hover:text-violet-300">Início</a>
+        <a href="#teste" class="hover:text-violet-300">Teste de Área</a>
+        <a href="#trilhas" class="hover:text-violet-300">Trilhas</a>
+        <a href="#qa" class="hover:text-violet-300">Perguntas</a>
+        <a href="#maker" class="hover:text-violet-300">Maker</a>
+        <a href="#badges" class="hover:text-violet-300">Progresso</a>
       </nav>
-      <button id="btnMobile" class="md:hidden p-2 rounded border border-slate-300" aria-label="Abrir menu">☰</button>
+      <button id="btnMobile" class="md:hidden p-2 rounded border border-slate-600" aria-label="Abrir menu">☰</button>
     </div>
     <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
       <div class="flex flex-col gap-2 text-sm">
-        <a href="#home" class="hover:text-indigo-700">Início</a>
-        <a href="#teste" class="hover:text-indigo-700">Teste de Área</a>
-        <a href="#trilhas" class="hover:text-indigo-700">Trilhas</a>
-        <a href="#qa" class="hover:text-indigo-700">Perguntas</a>
-        <a href="#maker" class="hover:text-indigo-700">Maker</a>
-        <a href="#badges" class="hover:text-indigo-700">Progresso</a>
+        <a href="#home" class="hover:text-violet-300">Início</a>
+        <a href="#teste" class="hover:text-violet-300">Teste de Área</a>
+        <a href="#trilhas" class="hover:text-violet-300">Trilhas</a>
+        <a href="#qa" class="hover:text-violet-300">Perguntas</a>
+        <a href="#maker" class="hover:text-violet-300">Maker</a>
+        <a href="#badges" class="hover:text-violet-300">Progresso</a>
       </div>
     </div>
   </header>
@@ -47,23 +68,64 @@
   <section id="home" class="relative overflow-hidden">
     <div class="max-w-6xl mx-auto px-4 py-20 grid md:grid-cols-2 gap-10 items-center">
       <div>
-        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">T-Easy — Seu começo no TI não precisa ser difícil.</h1>
-        <p class="text-slate-600 mb-6">Descubra sua área, siga trilhas guiadas, pergunte à vontade e ganhe badges de progresso. Um espaço acolhedor para você entrar no mundo da tecnologia.</p>
+        <h1 class="text-3xl md:text-5xl font-extrabold leading-tight mb-4">
+          T-Easy — Seu começo no TI não precisa ser difícil.
+        </h1>
+        <p class="text-slate-300 mb-6">
+          Descubra sua área, siga trilhas guiadas, pergunte à vontade e ganhe badges de progresso.
+          Um espaço acolhedor para você entrar no mundo da tecnologia sem medo de fazer perguntas.
+        </p>
         <div class="flex gap-3">
-          <a href="#teste" class="inline-block bg-indigo-600 text-white px-5 py-3 rounded-xl shadow hover:bg-indigo-700">Fazer Teste de Área</a>
-          <a href="#trilhas" class="inline-block bg-white border border-slate-300 px-5 py-3 rounded-xl hover:border-slate-400">Ver Trilhas</a>
+          <a href="#teste" class="inline-block bg-violet-600 text-white px-5 py-3 rounded-xl shadow-lg shadow-violet-900/60 hover:bg-violet-500">
+            Fazer Teste de Área
+          </a>
+          <a href="#trilhas" class="inline-block bg-slate-900/70 border border-slate-600 px-5 py-3 rounded-xl hover:border-violet-400">
+            Ver Trilhas
+          </a>
         </div>
       </div>
-      <div class="relative">
-        <div class="absolute -top-10 -right-10 w-56 h-56 bg-indigo-200 rounded-full blur-3xl opacity-60"></div>
-        <div class="relative bg-white border border-slate-200 rounded-2xl p-6 shadow">
-          <h3 class="font-semibold mb-3">Exemplo de Trilha</h3>
-          <ul class="text-sm space-y-2 list-disc list-inside">
-            <li>Fundamentos de Lógica</li>
-            <li>Git e GitHub</li>
-            <li>HTML, CSS e JS</li>
-            <li>Projeto prático: Landing Page</li>
-          </ul>
+
+      <!-- Lado direito remodelado: “3D tech brain” -->
+      <div class="relative flex items-center justify-center">
+        <!-- glow de fundo -->
+        <div class="absolute -top-20 -right-10 w-64 h-64 bg-gradient-to-tr from-violet-500 via-fuchsia-500 to-sky-400 rounded-full blur-3xl opacity-60"></div>
+        <div class="absolute -bottom-16 -left-10 w-52 h-52 bg-gradient-to-tr from-sky-500 via-violet-600 to-indigo-500 rounded-full blur-3xl opacity-40"></div>
+
+        <!-- “card 3D” -->
+        <div class="relative bg-gradient-to-br from-slate-900 via-slate-950 to-black border border-violet-500/40 rounded-3xl p-6 shadow-2xl shadow-violet-900/70 transform hover:-translate-y-1 hover:shadow-violet-700/80 transition">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center text-3xl">
+              🧠
+            </div>
+            <div>
+              <p class="text-xs uppercase tracking-wide text-violet-300">Mindset Tech</p>
+              <p class="text-sm text-slate-200">Aprendizado guiado para iniciantes em TI</p>
+            </div>
+          </div>
+
+          <p class="text-sm text-slate-300 mb-4">
+            Representação visual da ideia da T-Easy: um cérebro em modo tecnologia, evoluindo aos poucos,
+            trilha por trilha, sem pressão e sem julgamentos.
+          </p>
+
+          <div class="grid grid-cols-2 gap-3 text-[10px] font-mono text-violet-200">
+            <div class="space-y-1">
+              <p class="uppercase tracking-wide text-violet-300/90">Stack inicial</p>
+              <p>HTML • CSS • JS</p>
+              <p>GitHub Pages</p>
+              <p>LocalStorage</p>
+            </div>
+            <div class="space-y-1">
+              <p class="uppercase tracking-wide text-violet-300/90">Trilhas</p>
+              <p>dev • infra</p>
+              <p>cloud • obs</p>
+              <p>dados</p>
+            </div>
+          </div>
+
+          <div class="mt-4 text-[10px] text-slate-400 border-t border-slate-700 pt-3">
+            <p>1010 0110 • lógica • curiosidade • constância • comunidade</p>
+          </div>
         </div>
       </div>
     </div>
@@ -73,14 +135,14 @@
   <section id="teste" class="max-w-6xl mx-auto px-4 py-16">
     <div class="flex items-center justify-between mb-6">
       <h2 class="text-2xl md:text-3xl font-bold">Teste de Área de Interesse</h2>
-      <button id="btnResetQuiz" class="text-sm underline">Limpar respostas</button>
+      <button id="btnResetQuiz" class="text-sm underline text-violet-300">Limpar respostas</button>
     </div>
-    <form id="quiz" class="bg-white border border-slate-200 rounded-2xl p-6 shadow grid gap-6">
+    <form id="quiz" class="bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow-lg grid gap-6">
       <!-- Questões -->
       <div class="grid md:grid-cols-2 gap-6">
         <div>
           <label class="font-semibold">1) O que te anima mais?</label>
-          <select class="mt-2 w-full border rounded-lg p-2" name="q1" required>
+          <select class="mt-2 w-full border border-slate-700 bg-slate-900 rounded-lg p-2 text-sm" name="q1" required>
             <option value="">Selecione...</option>
             <option value="dev">Criar aplicações e interfaces</option>
             <option value="infra">Montar e manter ambientes</option>
@@ -91,7 +153,7 @@
         </div>
         <div>
           <label class="font-semibold">2) Preferência de atividade</label>
-          <select class="mt-2 w-full border rounded-lg p-2" name="q2" required>
+          <select class="mt-2 w-full border border-slate-700 bg-slate-900 rounded-lg p-2 text-sm" name="q2" required>
             <option value="">Selecione...</option>
             <option value="dev">Codificar features</option>
             <option value="infra">Configurar redes/serviços</option>
@@ -102,7 +164,7 @@
         </div>
         <div>
           <label class="font-semibold">3) Ferramentas que te atraem</label>
-          <select class="mt-2 w-full border rounded-lg p-2" name="q3" required>
+          <select class="mt-2 w-full border border-slate-700 bg-slate-900 rounded-lg p-2 text-sm" name="q3" required>
             <option value="">Selecione...</option>
             <option value="dev">React, Node.js</option>
             <option value="infra">Linux, Docker</option>
@@ -113,7 +175,7 @@
         </div>
         <div>
           <label class="font-semibold">4) Tipo de problema</label>
-          <select class="mt-2 w-full border rounded-lg p-2" name="q4" required>
+          <select class="mt-2 w-full border border-slate-700 bg-slate-900 rounded-lg p-2 text-sm" name="q4" required>
             <option value="">Selecione...</option>
             <option value="dev">UX e funcionalidades</option>
             <option value="infra">Disponibilidade</option>
@@ -123,14 +185,17 @@
           </select>
         </div>
       </div>
-      <button class="bg-indigo-600 text-white px-5 py-3 rounded-xl w-max hover:bg-indigo-700">Ver Resultado</button>
-      <p id="quizResult" class="hidden p-4 rounded-xl bg-indigo-50 text-indigo-900"></p>
+      <button class="bg-violet-600 text-white px-5 py-3 rounded-xl w-max hover:bg-violet-500 shadow-md shadow-violet-900/60">
+        Ver Resultado
+      </button>
+      <p id="quizResult" class="hidden p-4 rounded-xl bg-violet-950/60 text-violet-50 border border-violet-600"></p>
     </form>
   </section>
 
   <!-- TRILHAS DE APRENDIZADO -->
   <section id="trilhas" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl md:text-3xl font-bold mb-6">Trilhas de Aprendizado</h2>
+    <p class="text-slate-300 text-sm mb-4">Clique em cada tópico para abrir um material recomendado (curso, documentação ou tutorial).</p>
     <div id="tracks" class="grid md:grid-cols-2 gap-6"></div>
   </section>
 
@@ -139,12 +204,16 @@
     <div class="grid md:grid-cols-2 gap-8 items-start">
       <div>
         <h2 class="text-2xl md:text-3xl font-bold mb-2">Pergunte sem medo</h2>
-        <p class="text-slate-600 mb-4">Aqui ninguém julga. Faça uma pergunta e receba uma resposta clara e acolhedora.</p>
-        <form id="qaForm" class="bg-white border border-slate-200 rounded-2xl p-6 shadow grid gap-4">
-          <input name="nome" placeholder="Seu nome (opcional)" class="border rounded-lg p-2" />
-          <textarea name="pergunta" required placeholder="Escreva sua pergunta..." class="border rounded-lg p-2 h-28"></textarea>
-          <button class="bg-indigo-600 text-white px-5 py-3 rounded-xl w-max hover:bg-indigo-700">Enviar</button>
-          <p id="qaFeedback" class="hidden text-green-700 text-sm">Pergunta enviada! (salva localmente)</p>
+        <p class="text-slate-300 mb-4">
+          Aqui ninguém julga. Faça uma pergunta e receba uma resposta clara e acolhedora.
+        </p>
+        <form id="qaForm" class="bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow-lg grid gap-4">
+          <input name="nome" placeholder="Seu nome (opcional)" class="border border-slate-700 bg-slate-900 rounded-lg p-2 text-sm" />
+          <textarea name="pergunta" required placeholder="Escreva sua pergunta..." class="border border-slate-700 bg-slate-900 rounded-lg p-2 h-28 text-sm"></textarea>
+          <button class="bg-violet-600 text-white px-5 py-3 rounded-xl w-max hover:bg-violet-500 shadow-md shadow-violet-900/60">
+            Enviar
+          </button>
+          <p id="qaFeedback" class="hidden text-green-400 text-sm">Pergunta enviada! (salva localmente)</p>
         </form>
       </div>
       <div>
@@ -158,17 +227,23 @@
   <section id="maker" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl md:text-3xl font-bold mb-6">Cultura Maker & Projetos Práticos</h2>
     <div class="grid md:grid-cols-3 gap-6">
-      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+      <article class="bg-slate-900/80 border border-slate-700 rounded-2xl p-5 shadow">
         <h4 class="font-semibold mb-2">Projeto 1: Página Estática</h4>
-        <p class="text-sm text-slate-600">Crie uma landing page com HTML/CSS/JS e publique no GitHub Pages.</p>
+        <p class="text-sm text-slate-300">
+          Crie uma landing page com HTML/CSS/JS e publique no GitHub Pages.
+        </p>
       </article>
-      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+      <article class="bg-slate-900/80 border border-slate-700 rounded-2xl p-5 shadow">
         <h4 class="font-semibold mb-2">Projeto 2: Bot de Logs</h4>
-        <p class="text-sm text-slate-600">Simule logs e gere um dashboard local com gráficos.</p>
+        <p class="text-sm text-slate-300">
+          Simule logs e gere um dashboard local com gráficos.
+        </p>
       </article>
-      <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow">
+      <article class="bg-slate-900/80 border border-slate-700 rounded-2xl p-5 shadow">
         <h4 class="font-semibold mb-2">Projeto 3: API Mock</h4>
-        <p class="text-sm text-slate-600">Crie uma API fake com JSON Server para consumir no front.</p>
+        <p class="text-sm text-slate-300">
+          Crie uma API fake com JSON Server para consumir no front.
+        </p>
       </article>
     </div>
   </section>
@@ -177,11 +252,11 @@
   <section id="badges" class="max-w-6xl mx-auto px-4 py-16">
     <h2 class="text-2xl md:text-3xl font-bold mb-6">Seu Progresso</h2>
     <div class="grid md:grid-cols-2 gap-8 items-center">
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow">
+      <div class="bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow">
         <h3 class="font-semibold mb-3">Badges conquistados</h3>
         <div class="flex gap-2 flex-wrap" id="badgeList"></div>
       </div>
-      <div class="bg-white border border-slate-200 rounded-2xl p-6 shadow">
+      <div class="bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow">
         <h3 class="font-semibold mb-3">Gráfico de Progresso</h3>
         <canvas id="progressChart" width="400" height="400" aria-label="Gráfico de progresso" role="img"></canvas>
       </div>
@@ -189,8 +264,8 @@
   </section>
 
   <!-- FOOTER -->
-  <footer class="border-t border-slate-200 mt-16">
-    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-500">
+  <footer class="border-t border-slate-800 mt-16">
+    <div class="max-w-6xl mx-auto px-4 py-10 text-sm text-slate-400">
       <p>Protótipo educacional — IniciaTI (PCA). v0.5</p>
     </div>
   </footer>
@@ -207,51 +282,126 @@
       dev: {
         titulo: 'Desenvolvimento (Front/Back)',
         passos: [
-          'Lógica de Programação & Git',
-          'HTML + CSS + JavaScript',
-          'Node.js & APIs REST',
-          'Framework (React) — básico',
-          'Projeto: To‑Do com persistência local'
+          {
+            nome: 'Lógica de Programação & Git',
+            url: 'https://www.rocketseat.com.br/discover'
+          },
+          {
+            nome: 'HTML + CSS + JavaScript',
+            url: 'https://www.ev.org.br/cursos/crie-um-site-simples-usando-html-css-e-javascript'
+          },
+          {
+            nome: 'Node.js & APIs REST',
+            url: 'https://cursa.app/pt/pagina/node-js-curso-completo-do-basico-ao-avancado'
+          },
+          {
+            nome: 'Framework (React) — básico',
+            url: 'https://cursa.app/pt/pagina/react-js-curso-completo'
+          },
+          {
+            nome: 'Projeto: To-Do com persistência local',
+            url: 'https://www.youtube.com/playlist?list=PLEuLN871skK7VRR-MVvkTC8eIlKL62Z0Q'
+          }
         ]
       },
       infra: {
         titulo: 'Infraestrutura & Redes',
         passos: [
-          'Fundamentos de Sistemas Operacionais',
-          'Linux básico e Shell',
-          'Redes (TCP/IP, DNS, HTTP)',
-          'Virtualização & Containers',
-          'Projeto: Servidor web com Docker'
+          {
+            nome: 'Fundamentos de Sistemas Operacionais',
+            url: 'https://www.ev.org.br/cursos/fundamentos-de-ti-hardware-e-software'
+          },
+          {
+            nome: 'Linux básico e Shell',
+            url: 'https://www.cursoemvideo.com/curso/linux/'
+          },
+          {
+            nome: 'Redes (TCP/IP, DNS, HTTP)',
+            url: 'https://www.cursoemvideo.com/curso/redes-de-computadores/'
+          },
+          {
+            nome: 'Virtualização & Containers',
+            url: 'https://www.cursou.com.br/informatica/descomplicando-docker/'
+          },
+          {
+            nome: 'Projeto: Servidor web com Docker',
+            url: 'https://www.cursou.com.br/informatica/programacao/docker/'
+          }
         ]
       },
       cloud: {
         titulo: 'Cloud & DevOps',
         passos: [
-          'Conceitos de Nuvem (IaaS/PaaS/SaaS)',
-          'Docker & Compose',
-          'Terraform — fundamentos',
-          'Pipelines CI/CD (GitHub Actions)',
-          'Projeto: IaC para uma API simples'
+          {
+            nome: 'Conceitos de Nuvem (IaaS/PaaS/SaaS)',
+            url: 'https://learn.microsoft.com/pt-br/training/paths/az-900-descrever-conceitos-de-nuvem/'
+          },
+          {
+            nome: 'Docker & Compose',
+            url: 'https://www.cursou.com.br/informatica/programacao/docker/'
+          },
+          {
+            nome: 'Terraform — fundamentos',
+            url: 'https://guiadeti.com.br/cursos/youtube/minicurso-terraform/'
+          },
+          {
+            nome: 'Pipelines CI/CD (GitHub Actions)',
+            url: 'https://learn.microsoft.com/pt-br/training/paths/automate-workflow-github-actions/'
+          },
+          {
+            nome: 'Projeto: IaC para uma API simples',
+            url: 'https://www.alura.com.br/videos/terraform-no-google-cloud-c1495'
+          }
         ]
       },
       obs: {
         titulo: 'Observabilidade',
         passos: [
-          'Métricas, Logs e Traces — conceitos',
-          'Prometheus/Grafana — noções',
-          'Integrações (ex.: Datadog) — visão',
-          'Alertas e Dashboards',
-          'Projeto: Coletar logs e gerar gráfico'
+          {
+            nome: 'Métricas, Logs e Traces — conceitos',
+            url: 'https://www.datadoghq.com/pt/blog/observability-101/'
+          },
+          {
+            nome: 'Prometheus/Grafana — noções',
+            url: 'https://www.sensedia.com.br/post/monitorando-apis-com-prometheus-e-grafana'
+          },
+          {
+            nome: 'Integrações (ex.: Datadog) — visão',
+            url: 'https://docs.datadoghq.com/pt/getting_started/logs/'
+          },
+          {
+            nome: 'Alertas e Dashboards',
+            url: 'https://docs.datadoghq.com/pt/dashboards/'
+          },
+          {
+            nome: 'Projeto: Coletar logs e gerar gráfico',
+            url: 'https://cienciadedadosuff.github.io/cursos/notebooks/caderno-3.html'
+          }
         ]
       },
       dados: {
         titulo: 'Dados & Análise',
         passos: [
-          'SQL — fundamentos',
-          'Python para análise (pandas)',
-          'Visualização de dados',
-          'ETL/ELT — visão geral',
-          'Projeto: Relatório com dataset público'
+          {
+            nome: 'SQL — fundamentos',
+            url: 'https://pt.khanacademy.org/computing/computer-programming/sql'
+          },
+          {
+            nome: 'Python para análise (pandas)',
+            url: 'https://asimov.academy/curso-gratuito-dados/'
+          },
+          {
+            nome: 'Visualização de dados',
+            url: 'https://hub.asimov.academy/blog/matplotlib-visualizacao-de-dados/'
+          },
+          {
+            nome: 'ETL/ELT — visão geral',
+            url: 'https://cursa.app/pt/pagina/introducao-ao-big-data-com-python-visualizacao-de-dados-em-larga-escala-com-python-matplotlib-seaborn-plotly'
+          },
+          {
+            nome: 'Projeto: Relatório com dataset público',
+            url: 'https://escoladedados.org/tutoriais/primeiros-passos-com-python-e-pandas-para-analise-de-dados/'
+          }
         ]
       }
     };
@@ -262,14 +412,14 @@
       wrapper.innerHTML = '';
       Object.entries(TRACKS).forEach(([key, trilha]) => {
         const card = document.createElement('article');
-        card.className = 'bg-white border border-slate-200 rounded-2xl p-6 shadow flex flex-col';
+        card.className = 'bg-slate-900/80 border border-slate-700 rounded-2xl p-6 shadow flex flex-col';
         card.innerHTML = `
           <div class="flex items-start justify-between gap-3">
             <h3 class="font-semibold text-lg">${trilha.titulo}</h3>
-            <button data-track="${key}" class="text-sm px-3 py-1 rounded-lg border hover:bg-slate-50">Marcar como iniciada</button>
+            <button data-track="${key}" class="text-sm px-3 py-1 rounded-lg border border-slate-600 hover:border-violet-400 hover:bg-slate-900/80">Marcar como iniciada</button>
           </div>
-          <ol class="mt-4 list-decimal list-inside space-y-2 text-sm">
-            ${trilha.passos.map(p => `<li>${p}</li>`).join('')}
+          <ol class="mt-4 list-decimal list-inside space-y-2 text-sm text-slate-200">
+            ${trilha.passos.map(p => `<li class="whitespace-normal"><a href="${p.url}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 underline underline-offset-2 decoration-violet-400 hover:text-violet-200"><span>${p.nome}</span><span aria-hidden="true" class="text-[10px]">↗</span></a></li>`).join('')}
           </ol>
         `;
         wrapper.appendChild(card);
@@ -316,17 +466,17 @@
     // Perguntas padrão (aparecem automaticamente na primeira visita)
     const SEED_QA = [
       {
-        nome: 'Iniciante',
+        nome: 'Claudio',
         pergunta: 'Qual a diferença entre front-end e back-end?',
         resposta: 'Front-end é o que o usuário vê e interage (HTML, CSS, JS no navegador). Back-end é o que roda no servidor cuidando de regras de negócio, banco de dados e APIs. Eles conversam via HTTP/APIs.'
       },
       {
-        nome: 'Iniciante',
+        nome: 'Renata',
         pergunta: 'Preciso saber programar para trabalhar com TI?',
         resposta: 'Não necessariamente. Há trilhas como suporte, infraestrutura, redes, QA, dados (análise), segurança e gestão. Programar ajuda muito e abre portas, mas você pode começar em áreas com pouca ou nenhuma codificação e evoluir aos poucos.'
       },
       {
-        nome: 'Iniciante',
+        nome: 'Bruno',
         pergunta: 'O que é exatamente um servidor? É um computador normal?',
         resposta: 'É um computador otimizado para oferecer serviços pela rede (sites, APIs, banco de dados). Pode ser uma máquina física no datacenter ou uma instância na nuvem. Apesar de ser “um computador”, tem configurações e responsabilidades próprias (disponibilidade, segurança, backups).'
       }
@@ -342,9 +492,9 @@
       qaList.innerHTML = items.map(item => {
         const hasAnswer = !!item.resposta;
         return `
-        <li class="bg-white border border-slate-200 rounded-xl p-4 shadow">
-          <p class="text-sm"><span class="font-semibold">${item.nome||'Anônimo'}:</span> ${item.pergunta}</p>
-          ${hasAnswer ? `<details class="mt-2"><summary class="text-xs text-indigo-700 cursor-pointer">Ver resposta</summary><p class="text-sm mt-2">${item.resposta}</p></details>` : ''}
+        <li class="bg-slate-900/80 border border-slate-700 rounded-xl p-4 shadow">
+          <p class="text-sm text-slate-100"><span class="font-semibold">${item.nome||'Anônimo'}:</span> ${item.pergunta}</p>
+          ${hasAnswer ? `<details class="mt-2"><summary class="text-xs text-violet-300 cursor-pointer">Ver resposta</summary><p class="text-sm mt-2 text-slate-200">${item.resposta}</p></details>` : ''}
           <p class="text-xs text-slate-500 mt-1">${new Date(item.data).toLocaleString()}</p>
         </li>`;
       }).join('');
@@ -378,8 +528,8 @@
     function renderBadges() {
       const badges = getBadges();
       badgeList.innerHTML = badges.length ? badges.map(b => `
-        <span class="px-3 py-1 text-xs rounded-full bg-indigo-100 text-indigo-900 border border-indigo-200">${b}</span>`).join('')
-      : '<span class="text-sm text-slate-500">Sem badges ainda — inicie uma trilha.</span>';
+        <span class="px-3 py-1 text-xs rounded-full bg-violet-500/10 text-violet-200 border border-violet-400/60">${b}</span>`).join('')
+      : '<span class="text-sm text-slate-400">Sem badges ainda — inicie uma trilha.</span>';
     }
 
     // ======= CHART =======
