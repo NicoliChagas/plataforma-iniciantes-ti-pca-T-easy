@@ -12,7 +12,6 @@ Aqui, não existem perguntas idiotas — apenas pessoas aprendendo.
 
 Este é o protótipo funcional (100% concluído) apresentado na etapa final do PCA.
 
----
 
 ## Objetivo do Projeto
 
@@ -49,7 +48,6 @@ Espaço onde o usuário pode:
 ### Cultura Maker & Projetos Práticos
 - Sessão com pequenos projetos para o aluno aprender “fazendo”
 
----
 
 ## Principais Diferenciais
 
@@ -59,7 +57,6 @@ Espaço onde o usuário pode:
 - Sistema Q&A totalmente funcional  
 - Design pensado para iniciantes: simples, objetivo e sem jargões técnicos  
 
----
 
 ## Como Rodar o Projeto Localmente
 
@@ -79,7 +76,6 @@ O projeto é 100% front-end e funciona diretamente no navegador.
 A versão hospedada está disponível em:  
 https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/
 
----
 
 ## Tecnologias Utilizadas
 
@@ -90,7 +86,6 @@ https://nicolichagas.github.io/plataforma-iniciantes-ti-pca-T-easy/
 - LocalStorage (persistência local)  
 - GitHub Pages (deploy do projeto)  
 
----
 
 ## Estrutura do Projeto
 
